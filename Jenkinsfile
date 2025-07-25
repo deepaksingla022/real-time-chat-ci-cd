@@ -5,12 +5,12 @@ pipeline {
     IMAGE_NAME = 'deepsingla022/chat-app'
   }
 
-  stages {
-    stage('Clone Repository') {
-      steps {
-        git 'https://github.com/deepaksingla022/real-time-chat-ci-cd.git'
-      }
-    }
+ stage('Clone Repository') {
+  steps {
+    git branch: 'main', url: 'https://github.com/deepaksingla022/real-time-chat-ci-cd.git'
+  }
+}
+
 
     stage('Build Docker Image') {
       steps {

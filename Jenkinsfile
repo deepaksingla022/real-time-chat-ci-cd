@@ -22,7 +22,7 @@ pipeline {
 
     stage('Push to Docker Hub') {
       steps {
-        withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+        withCredentials([usernamePassword(credentialsId: 'github-http', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
           script {
             docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
               dockerImage.push('latest')
